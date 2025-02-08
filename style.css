@@ -1,0 +1,132 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffe6f2; /* Light pink background */
+    margin: 0;
+    background-image: url('heart-background.jpg'); /* Add background image */
+    background-size: cover;
+    overflow: hidden; /* Hide overflowing stars */
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white container */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative; /* Make the container a positioning context */
+    width: 80%; /* Limit container width for better responsiveness */
+    max-width: 600px; /* Maximum width */
+    z-index: 1; /* Ensure quiz content is above the stars */
+}
+
+h1 {
+    color: #e91e63; /* Valentine's Day pink */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative; /* Needed for proper absolute button positioning */
+    width: 100%; /* Let buttons take the container's width */
+    height: 100px; /* Adjust for desired button layout */
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: absolute; /* Enable precise button placement */
+}
+
+#noButton {
+    background-color: #ff80ab; /* Lighter pink */
+    color: white;
+    left: 10%; /* Position No button to the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+}
+
+#yesButton {
+    background-color: #f48fb1; /* Another shade of pink */
+    color: white;
+    font-size: 18px;
+    right: 10%; /* Position Yes button to the right */
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+}
+
+#yesButton:hover {
+    background-color: #f06292;
+}
+
+#noButton:hover {
+    background-color: #f06292;
+}
+
+/* Celebration Image Styling */
+#celebration-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Initially hidden */
+    z-index: 3; /* Above the stars */
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#celebration-image img {
+    max-width: 90%; /* Adjust as needed */
+    max-height: 60%;
+    border-radius: 50%; /* Make it circular initially */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Make heart shaped */
+}
+
+#promise-text {
+    font-size: 24px;
+    color: #e91e63;
+    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a shadow */
+    text-align: center; /* Horizontally center the text */
+    line-height: 1.2; /* Adjust line height for better vertical spacing */
+}
+/* Star Rain Styling */
+#star-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: 2;
+}
+
+.star {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: lightblue;
+    border-radius: 50%;
+    animation: fall linear infinite;
+    box-shadow: 0 0 5px lightblue;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
